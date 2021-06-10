@@ -142,7 +142,7 @@ def processTxn(tx, meta, address):
                     obj['amount'] = meta['delivered_amount']['value']
                     obj['currency'] = meta['delivered_amount']['currency']
                 else:
-                    obj['amount'] = str(int(meta['delivered_amount'])/1000000)
+                    obj['amount'] = str(Decimal(meta['delivered_amount'])/1000000)
                     obj['currency'] = 'STM'
 
                 for affectedNode in meta['AffectedNodes']:

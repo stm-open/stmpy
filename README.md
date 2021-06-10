@@ -1,4 +1,4 @@
 ## Installation
-    pip install stmpy-lib
+    pip install stmpy_lib
 
-[DEMO](./demo.py)
+[DEMO](https://github.com/stm-open/demo/blob/main/py/demo.py)

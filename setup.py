@@ -7,13 +7,13 @@ from setuptools import setup, find_packages
 install_requires = [
     'ecdsa>=0.10',
     'six>=1.5.2',
-    'websocket-client==0.14.0'
+    'websocket-client==0.15.0'
 ]
 
 
 setup(
-    name="stmpy-lib",
-    version="0.1.0",
+    name="stmpy_lib",
+    version="0.1.1",
     author="stm-open",
     author_email="open@labs.stream",
     url="https://github.com/stm-open/stmpy.git",

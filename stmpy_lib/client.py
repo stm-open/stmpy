@@ -285,7 +285,10 @@ class Client(object):
         data = {k:v for k, v in data.items() if v is not None}
 
         log.debug('>>>>>>>> sending %s', json.dumps(data, indent=2, cls=StreamEncoder))
-        self.conn.send(json.dumps(data, cls=StreamEncoder).encode('utf-8'))
+        if six.PY2:
+            self.conn.send(json.dumps(data, cls=StreamEncoder).encode('utf-8'))
+        else:
+            self.conn.send(json.dumps(data, cls=StreamEncoder))
         with self.callbacks_lock:
             self.callbacks[data['id']] = DeferredResponse()
         msg = self.callbacks[data['id']].wait()
@@ -670,7 +673,9 @@ class Remote(object):
         # Sign the transaction
         sign_transaction(tx_json, self.secret)
         txhash = transaction_hash(tx_json)
-
+        if six.PY3:
+            txhash = txhash.decode('utf-8')
+            
         # Prepare a deferred result value
         pending = DeferredTransaction(tx_json, txhash)
         # Now submit

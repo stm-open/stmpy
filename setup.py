@@ -13,7 +13,7 @@ install_requires = [
 
 setup(
     name="stmpy_lib",
-    version="0.1.1",
+    version="0.1.2",
     author="stm-open",
     author_email="open@labs.stream",
     url="https://github.com/stm-open/stmpy.git",
